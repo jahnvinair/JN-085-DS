@@ -39,12 +39,12 @@ void merge(int arr[], int left, int mid, int right) {
     }
 }
 
-void mergeSortRecursive(int arr[], int left, int right) {
+void rec_MergeSort(int arr[], int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 
-        mergeSortRecursive(arr, left, mid);
-        mergeSortRecursive(arr, mid + 1, right);
+        rec_MergeSort(arr, left, mid);
+        rec_MergeSort(arr, mid + 1, right);
 
         merge(arr, left, mid, right);
     }
@@ -54,7 +54,7 @@ int main() {
     int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    mergeSortRecursive(arr, 0, n - 1);
+    rec_MergeSort(arr, 0, n - 1);
 
     printf("Sorted array: ");
     for (int i = 0; i < n; i++) {
